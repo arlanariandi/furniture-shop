@@ -2009,6 +2009,10 @@ video {
   width: 14rem;
 }
 
+.w-80{
+    width: 20rem;
+}
+
 .w-auto{
   width: auto;
 }
