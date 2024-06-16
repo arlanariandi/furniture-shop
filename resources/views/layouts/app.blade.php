@@ -103,6 +103,7 @@
     <!-- Page Content -->
     <main>
         {{ $slot }}
+        @include('sweetalert::alert')
     </main>
 </div>
 
