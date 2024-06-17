@@ -24,6 +24,13 @@
                             {{ __('Product') }}
                         </x-nav-link>
                     </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('dashboard.user.index') }}"
+                                    :active="request()->routeIs('dashboard.user.index')">
+                            {{ __('User') }}
+                        </x-nav-link>
+                    </div>
                 @endif
             </div>
 
@@ -89,7 +96,7 @@
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button
-                                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                     <img class="h-8 w-8 rounded-full object-cover"
                                          src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
                                 </button>
@@ -171,6 +178,13 @@
                 <x-responsive-nav-link href="{{ route('dashboard.product.index') }}"
                                        :active="request()->routeIs('dashboard.product.index')">
                     {{ __('Product') }}
+                </x-responsive-nav-link>
+            </div>
+
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link href="{{ route('dashboard.user.index') }}"
+                                       :active="request()->routeIs('dashboard.user.index')">
+                    {{ __('User') }}
                 </x-responsive-nav-link>
             </div>
         @endif
