@@ -12,10 +12,10 @@
                 {{-- Error Handling --}}
                 @if ($errors->any())
                     <div class="mb-5" role="alert">
-                        <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                        <div class="bg-rose-500 text-white font-bold rounded-t px-4 py-2">
                             There's something wrong!
                         </div>
-                        <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                        <div class="border border-t-0 border-rose-400 rounded-b bg-rose-100 px-4 py-3 text-rose-700">
                             <p>
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -71,7 +71,7 @@
                         </button>
 
                         <a href="{{ route('dashboard.product.index') }}"
-                           class="bg-red-500 hover:bg-red-800 text-white font-bold py-2.5 px-10 ml-3 rounded-md shadow-lg">
+                           class="bg-rose-500 hover:bg-rose-800 text-white font-bold py-2.5 px-10 ml-3 rounded-md shadow-lg">
                             Cancel
                         </a>
                     </div>
