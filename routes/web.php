@@ -12,6 +12,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     ->prefix('dashboard')
     ->group(function () {
         Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('index');
+        Route::resource('my-transaction', \App\Http\Controllers\MyTransactionController::class);
 
         Route::middleware(['admin'])->group(function () {
             Route::resource('product', \App\Http\Controllers\ProductController::class);

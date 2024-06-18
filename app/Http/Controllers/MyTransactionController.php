@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
+use App\Models\TransactionItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 class MyTransactionController extends Controller
 {
@@ -11,7 +15,26 @@ class MyTransactionController extends Controller
      */
     public function index()
     {
-        //
+        if (request()->ajax()) {
+            $query = Transaction::with(['user'])->where('user_id', Auth::user()->id);
+
+            return DataTables::of($query)
+                ->addColumn('action', function ($item) {
+                    return '
+                        <a class="inline-block border-none bg-amber-500 text-white rounded-md px-4 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-amber-800 focus:outline-none focus:shadow-outline"
+                        href="' . route('dashboard.my-transaction.show', $item->id) . '">
+                            Show
+                        </a>
+                    ';
+                })
+                ->editColumn('total_price', function ($item) {
+                    return number_format($item->total_price);
+                })
+                ->rawColumns(['action'])
+                ->make();
+        }
+
+        return view('pages.dashboard.transaction.index');
     }
 
     /**
@@ -33,9 +56,21 @@ class MyTransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Transaction $myTransaction)
     {
-        //
+        if (request()->ajax()) {
+            $query = TransactionItem::with(['product'])->where('transaction_id', $myTransaction->id)->get();
+
+            return DataTables::of($query)
+                ->editColumn('product.price', function ($item) {
+                    return number_format($item->product->price);
+                })
+                ->make();
+        }
+
+        return view('pages.dashboard.transaction.show', [
+            'transaction' => $myTransaction
+        ]);
     }
 
     /**
