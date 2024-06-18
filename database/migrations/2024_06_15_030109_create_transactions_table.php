@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('payment')->default('MIDTRANS');
             $table->string('payment_url')->nullable();
 
-            $table->bigInteger('total_payment');
+            $table->bigInteger('total_price');
             $table->string('status')->default('PENDING');
 
             $table->softDeletes();

@@ -17,5 +17,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
             Route::resource('product', \App\Http\Controllers\ProductController::class);
             Route::resource('product.gallery', \App\Http\Controllers\ProductGalleryController::class)->shallow();
             Route::resource('user', \App\Http\Controllers\UserController::class);
+            Route::resource('transaction', \App\Http\Controllers\TransactionController::class);
         });
     });
