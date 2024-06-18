@@ -59,7 +59,7 @@ class MyTransactionController extends Controller
     public function show(Transaction $myTransaction)
     {
         if (request()->ajax()) {
-            $query = TransactionItem::with(['product'])->where('transaction_id', $myTransaction->id)->get();
+            $query = TransactionItem::with(['product'])->where('transaction_id', $myTransaction->id);
 
             return DataTables::of($query)
                 ->editColumn('product.price', function ($item) {

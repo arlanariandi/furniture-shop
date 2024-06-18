@@ -3,7 +3,7 @@
         <div class="flex justify-center mb-8">
             <img class="w-80"
                 src="{{ url('/frontend/images/content/logo.png') }}"
-                alt="Luxspace | Fulfill your house with beautiful furniture"
+                alt="dekorasi dalam desain | Fulfill your house with beautiful furniture"
             />
         </div>
         <aside class="container mx-auto">
@@ -91,6 +91,6 @@
 
 <footer class="flex text-center px-4 py-8 justify-center">
     <p class="text-sm">
-        Copyright 2023 • All Rights Reserved Dekorasi Dalam Desain by arlanAriandi
+        Copyright 2023 • All Rights Reserved Dekorasi Dalam Desain by arlanariandi
     </p>
 </footer>
