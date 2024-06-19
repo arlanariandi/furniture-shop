@@ -9,6 +9,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     ->group(function () {
         Route::get('/cart', [\App\Http\Controllers\FrontendController::class, 'cart'])->name('cart');
         Route::post('/cart/{id}', [\App\Http\Controllers\FrontendController::class, 'cartAdd'])->name('cart-add');
+        Route::delete('/cart/{id}', [\App\Http\Controllers\FrontendController::class, 'cartDelete'])->name('cart-delete');
+        Route::post('/checkout', [\App\Http\Controllers\FrontendController::class, 'checkout'])->name('checkout');
         Route::get('/checkout/success', [\App\Http\Controllers\FrontendController::class, 'success'])->name('checkout-success');
     });
 
