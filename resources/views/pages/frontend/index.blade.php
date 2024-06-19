@@ -185,7 +185,7 @@
                             </div>
                             <img
                                     src="{{ $product->galleries()->exists() ? \Illuminate\Support\Facades\Storage::url($product->galleries->first()->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}"
-                                    alt=""
+                                    alt="image {{ $product->slug }}"
                                     class="w-full h-full object-cover object-center"
                             />
                         </div>
