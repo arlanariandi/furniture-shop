@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CheckoutRequest;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -48,6 +49,11 @@ class FrontendController extends Controller
         $item->delete();
 
         return redirect('cart');
+    }
+
+    public function checkout(CheckoutRequest $request)
+    {
+        return $request->all();
     }
 
     public function success(Request $request)
