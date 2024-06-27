@@ -79,9 +79,7 @@
                                     <form action="{{ route('cart-delete', $cart->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="text-red-600 border-none focus:outline-none px-3 py-1"
-                                                data-delete-item="1"
-                                        >
+                                        <button class="text-red-600 border-none focus:outline-none px-3 py-1">
                                             X
                                         </button>
                                     </form>
